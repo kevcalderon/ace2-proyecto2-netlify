@@ -52,7 +52,7 @@ function Home(props) {
                       <ListGroup.Item>Edad: {props.user.edad}</ListGroup.Item>
                       <ListGroup.Item>Peso: {props.user.peso}</ListGroup.Item>
                       <ListGroup.Item>
-                        Altura: {props.user.altura}
+                        Altura: {props.user.estatura}
                       </ListGroup.Item>
                       <ListGroup.Item>
                         Género: {props.user.genero}
