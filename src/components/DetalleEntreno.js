@@ -2,84 +2,37 @@ import React from "react";
 import ProgressBar from "react-bootstrap/ProgressBar";
 
 function DetalleEntreno(props) {
-  const EntrenoJumpOver = () => {
+  
+  const Entreno = (type) => {
     return (
       <div>
-        <h2>Entreno JumpOver</h2>
+        <h2>{type}</h2>
         <h3>Peso</h3>
-        <ProgressBar variant="sucess" animated now="450" />
-        <h2>Peso lb.</h2>
+        <ProgressBar variant="sucess" animated now={props.values.peso} />
+        <h2>{props.values.peso} lb.</h2>
         <br></br>
         <h3>Fuerza Inicial</h3>
-        <ProgressBar variant="info" animated now="450" />
-        <h2>fuerza_inicial N.</h2>
+        <ProgressBar variant="info" animated now = {props.values.fuerzaImpulsoInicial} />
+        <h2>{props.values.fuerzaImpulsoInicial} N.</h2>
         <br></br>
         <h3>Fuerza Llegada</h3>
-        <ProgressBar variant="warning" animated now="450" />
-        <h2>fuerza_llegada N.</h2>
+        <ProgressBar variant="warning" animated now={props.values.fuerzaImpulsoFinal} />
+        <h2>{props.values.fuerzaImpulsoFinal} N.</h2>
         <br></br>
         <h3>Calorias quemadas</h3>
-        <ProgressBar variant="danger" animated now="450" />
-        <h2> # calorias.</h2>
-        <br></br>
-      </div>
-    );
-  };
-
-  const EntrenoBoxJump = () => {
-    return (
-      <div>
-        <h2>EntrenoBoxJump</h2>
-        <h3>Peso</h3>
-        <ProgressBar variant="sucess" animated now="450" />
-        <h2>Peso lb.</h2>
-        <br></br>
-        <h3>Fuerza Inicial</h3>
-        <ProgressBar variant="info" animated now="450" />
-        <h2>fuerza_inicial N.</h2>
-        <br></br>
-        <h3>Fuerza Llegada</h3>
-        <ProgressBar variant="warning" animated now="450" />
-        <h2>fuerza_llegada N.</h2>
-        <br></br>
-        <h3>Calorias quemadas</h3>
-        <ProgressBar variant="danger" animated now="450" />
-        <h2> # calorias..</h2>
-        <br></br>
-      </div>
-    );
-  };
-
-  const EntrenoStepUp = () => {
-    return (
-      <div>
-        <h2>Entreno StepUp</h2>
-        <h3>Peso</h3>
-        <ProgressBar variant="sucess" animated now="450" />
-        <h2>Peso lb.</h2>
-        <br></br>
-        <h3>Fuerza Inicial</h3>
-        <ProgressBar variant="info" animated now="450" />
-        <h2>fuerza_inicial N.</h2>
-        <br></br>
-        <h3>Fuerza Llegada</h3>
-        <ProgressBar variant="warning" animated now="450" />
-        <h2>fuerza_llegada N.</h2>
-        <br></br>
-        <h3>Calorias quemadas</h3>
-        <ProgressBar variant="danger" animated now="450" />
-        <h2># calorias</h2>
+        <ProgressBar variant="danger" animated now={props.values.calorias} />
+        <h2>{props.values.calorias} calorias</h2>
         <br></br>
       </div>
     );
   };
 
   if (props.entreno === 1) {
-    return EntrenoJumpOver();
+    return Entreno("Entreno JumpOver");
   } else if (props.entreno === 2) {
-    return EntrenoBoxJump();
+    return Entreno("Entreno BoxJump");
   } else if (props.entreno === 3) {
-    return EntrenoStepUp();
+    return Entreno("Entreno StepUp");
   }
 }
 

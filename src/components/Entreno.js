@@ -10,6 +10,7 @@ function Entreno(props) {
   const [selectExrs, setExrs] = useState(0);
   const [data, setData] = useState({});
   const [counter, setCounter] = useState(0);
+  const [idEntreno, setIdEntreno] = useState(0);
 
   const getData = async () => {
     if (counter === 0) {
@@ -31,23 +32,24 @@ function Entreno(props) {
             idTipoEntreno: name,
           }),
         };
-        //console.log(requestPost);
+        
         const url = "https://api-ace2-proyec2.herokuapp.com/entreno";
-        fetch(url, requestPost)
-          .then((response) => response.json())
-          .then((data) => {
-            console.log(data);
-          })
-          .catch((err) => console.log(err));
+        const response = await fetch(url, requestPost);
+        const responseJSON = await response.json()
+        console.log("==============================")
+        console.log(responseJSON)
+        setIdEntreno(responseJSON.idEntreno)
       }
     }
-    // const url =
-    //   "https://api-ace2-proyec2.herokuapp.com/datosSensor/idEntreno/" +
-    //   props.idUsuario;
-    // const response = await fetch(url);
-    // const responseJSON = await response.json();
-    setCounter(1 + 1);
-    setData(2);
+    const url =
+      "https://api-ace2-proyec2.herokuapp.com/datosSensor/idEntreno/" +
+      idEntreno;
+      console.log("id entreno ====>   "+idEntreno)
+      console.log(url)
+    const response = await fetch(url);
+    const responseJSON = await response.json();
+    setCounter(counter + 1);
+    setData(responseJSON);
   };
 
   useEffect(() => {
@@ -117,14 +119,8 @@ function Entreno(props) {
       <br></br>
       <br></br>
       <div>
-        {/* <DetalleEntreno
-          entreno={selectExrs}
-          usuario={props.idUsuario}
-          values={data}
-        ></DetalleEntreno> */}
         <DetalleEntreno
           entreno={selectExrs}
-          usuario={props.idUsuario}
           values={data}
         ></DetalleEntreno>
       </div>
