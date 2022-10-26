@@ -2,21 +2,40 @@ import React from "react";
 import ProgressBar from "react-bootstrap/ProgressBar";
 
 function DetalleEntreno(props) {
-  
   const Entreno = (type) => {
     return (
       <div>
         <h2>{type}</h2>
+        <h3>Ritmo</h3>
+        <ProgressBar variant="success" animated now={props.ritmo} />
+        <h2>{props.ritmo} %</h2>
+        <br></br>
+        <h3>Velocidad</h3>
+        <ProgressBar
+          variant="warning"
+          animated
+          now={props.values.velocidadImpulso}
+        />
+        <h2>{props.values.velocidadImpulso} salto/minuto.</h2>
+        <br></br>
         <h3>Peso</h3>
-        <ProgressBar variant="sucess" animated now={props.values.peso} />
+        <ProgressBar animated now={props.values.peso} />
         <h2>{props.values.peso} lb.</h2>
         <br></br>
         <h3>Fuerza Inicial</h3>
-        <ProgressBar variant="info" animated now = {props.values.fuerzaImpulsoInicial} />
+        <ProgressBar
+          variant="info"
+          animated
+          now={props.values.fuerzaImpulsoInicial}
+        />
         <h2>{props.values.fuerzaImpulsoInicial} N.</h2>
         <br></br>
         <h3>Fuerza Llegada</h3>
-        <ProgressBar variant="warning" animated now={props.values.fuerzaImpulsoFinal} />
+        <ProgressBar
+          variant="warning"
+          animated
+          now={props.values.fuerzaImpulsoFinal}
+        />
         <h2>{props.values.fuerzaImpulsoFinal} N.</h2>
         <br></br>
         <h3>Calorias quemadas</h3>
