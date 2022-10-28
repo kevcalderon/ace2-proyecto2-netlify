@@ -83,7 +83,7 @@ function Entreno(props) {
   };
 
   useEffect(() => {
-    setTimeout(getData, 2000);
+    setTimeout(getData, 1500);
   });
 
   return (
