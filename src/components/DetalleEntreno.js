@@ -1,38 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 import ProgressBar from "react-bootstrap/ProgressBar";
-import Form from "react-bootstrap/Form";
 
 function DetalleEntreno(props) {
   const Entreno = (type) => {
-    const [range, setRange] = useState(5);
-    const [ritmo, setRitmo] = useState(0);
-    const [salto, setSalto] = useState(0);
-
-    if (parseInt(range) === 5) {
-      setSalto(2);
-    } else if (parseInt(range) === 6) {
-      setSalto(3);
-    } else if (parseInt(range) === 7) {
-      setSalto(4);
-    } else if (parseInt(range) === 8) {
-      setSalto(5);
-    }
-
-    setRitmo(props.value.ritmo / (salto / range));
-    console.log("el ritmo es : " + ritmo);
     return (
       <div>
-        <h3>{range} segundos</h3>
-        <Form.Range
-          min="5"
-          max="8"
-          defaultValue={range}
-          onChange={(e) => setRange(e.target.value)}
-        />
         <h2>{type}</h2>
         <h3>Ritmo</h3>
-        <ProgressBar variant="success" animated now={ritmo} />
-        <h2>{ritmo} %</h2>
+        <ProgressBar variant="success" animated now={props.rith} />
+        <h2>{props.rith} %</h2>
         <br></br>
         <h3>Velocidad</h3>
         <ProgressBar
