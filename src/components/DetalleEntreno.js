@@ -7,8 +7,8 @@ function DetalleEntreno(props) {
       <div>
         <h2>{type}</h2>
         <h3>Ritmo</h3>
-        <ProgressBar variant="success" animated now={props.values.ritmo} />
-        <h2>{props.values.ritmo} %</h2>
+        <ProgressBar variant="success" animated now={props.ritmo} />
+        <h2>{props.ritmo} %</h2>
         <br></br>
         <h3>Velocidad</h3>
         <ProgressBar

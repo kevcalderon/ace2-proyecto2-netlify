@@ -54,17 +54,17 @@ function Entreno(props) {
     setCounter(counter + 1);
     setData(responseJSON);
 
-    //   if (parseInt(range) === 5) {
-    //     setSalto(2);
-    //   } else if (parseInt(range) === 6) {
-    //     setSalto(3);
-    //   } else if (parseInt(range) === 7) {
-    //     setSalto(4);
-    //   } else if (parseInt(range) === 8) {
-    //     setSalto(5);
-    //   }
+    if (parseInt(range) === 5) {
+      setSalto(2);
+    } else if (parseInt(range) === 6) {
+      setSalto(3);
+    } else if (parseInt(range) === 7) {
+      setSalto(4);
+    } else if (parseInt(range) === 8) {
+      setSalto(5);
+    }
 
-    //   setRitmo(((data.velocidadImpulso / 60) * 100) / (salto / range));
+    setRitmo(data.ritmo / (salto / range));
     //   let requestPost2 = {
     //     method: "PUT",
     //     headers: { "Content-Type": "application/json" },
@@ -159,7 +159,7 @@ function Entreno(props) {
         <DetalleEntreno
           entreno={selectExrs}
           values={data}
-          // ritmo={ritmo}
+          ritmo={ritmo}
         ></DetalleEntreno>
       </div>
     </Fragment>
