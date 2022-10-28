@@ -1,7 +1,6 @@
 import React, { Fragment, useState, useEffect } from "react";
 import ListGroup from "react-bootstrap/ListGroup";
 import { DetalleEntreno } from "./DetalleEntreno";
-import Form from "react-bootstrap/Form";
 
 function change(val1, val2) {
   return val1 === val2;
@@ -12,9 +11,6 @@ function Entreno(props) {
   const [data, setData] = useState({});
   const [counter, setCounter] = useState(0);
   const [idEntreno, setIdEntreno] = useState(0);
-  const [range, setRange] = useState(5);
-  const [ritmo, setRitmo] = useState(0);
-  const [salto, setSalto] = useState(0);
 
   const getData = async () => {
     if (counter === 0) {
@@ -53,19 +49,6 @@ function Entreno(props) {
     const responseJSON = await response.json();
     setCounter(counter + 1);
     setData(responseJSON);
-
-    if (parseInt(range) === 5) {
-      setSalto(2);
-    } else if (parseInt(range) === 6) {
-      setSalto(3);
-    } else if (parseInt(range) === 7) {
-      setSalto(4);
-    } else if (parseInt(range) === 8) {
-      setSalto(5);
-    }
-
-    setRitmo(data.ritmo / (salto / range));
-    console.log("el ritmo es : " + ritmo);
   };
 
   useEffect(() => {
@@ -135,18 +118,7 @@ function Entreno(props) {
       <br></br>
       <br></br>
       <div>
-        <h3>{range} segundos</h3>
-        <Form.Range
-          min="5"
-          max="8"
-          defaultValue={range}
-          onChange={(e) => setRange(e.target.value)}
-        />
-        <DetalleEntreno
-          entreno={selectExrs}
-          values={data}
-          ritmo={ritmo}
-        ></DetalleEntreno>
+        <DetalleEntreno entreno={selectExrs} values={data}></DetalleEntreno>
       </div>
     </Fragment>
   );
