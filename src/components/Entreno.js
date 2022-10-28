@@ -13,8 +13,8 @@ function Entreno(props) {
   const [counter, setCounter] = useState(0);
   const [idEntreno, setIdEntreno] = useState(0);
   const [range, setRange] = useState(5);
-  // const [ritmo, setRitmo] = useState(0);
-  // const [salto, setSalto] = useState(0);
+  const [ritmo, setRitmo] = useState(0);
+  const [salto, setSalto] = useState(0);
 
   const getData = async () => {
     if (counter === 0) {
