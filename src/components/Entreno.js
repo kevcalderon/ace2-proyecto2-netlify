@@ -13,8 +13,8 @@ function Entreno(props) {
   const [counter, setCounter] = useState(0);
   const [idEntreno, setIdEntreno] = useState(0);
   const [range, setRange] = useState(5);
-  const [ritmo, setRitmo] = useState(0);
-  const [salto, setSalto] = useState(0);
+  // const [ritmo, setRitmo] = useState(0);
+  // const [salto, setSalto] = useState(0);
 
   const getData = async () => {
     if (counter === 0) {
@@ -54,32 +54,32 @@ function Entreno(props) {
     setCounter(counter + 1);
     setData(responseJSON);
 
-    if (parseInt(range) === 5) {
-      setSalto(2);
-    } else if (parseInt(range) === 6) {
-      setSalto(3);
-    } else if (parseInt(range) === 7) {
-      setSalto(4);
-    } else if (parseInt(range) === 8) {
-      setSalto(5);
-    }
+    //   if (parseInt(range) === 5) {
+    //     setSalto(2);
+    //   } else if (parseInt(range) === 6) {
+    //     setSalto(3);
+    //   } else if (parseInt(range) === 7) {
+    //     setSalto(4);
+    //   } else if (parseInt(range) === 8) {
+    //     setSalto(5);
+    //   }
 
-    setRitmo(((data.velocidadImpulso / 60) * 100) / (salto / range));
-    let requestPost2 = {
-      method: "PUT",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        ritmo: ritmo,
-      }),
-    };
+    //   setRitmo(((data.velocidadImpulso / 60) * 100) / (salto / range));
+    //   let requestPost2 = {
+    //     method: "PUT",
+    //     headers: { "Content-Type": "application/json" },
+    //     body: JSON.stringify({
+    //       ritmo: ritmo,
+    //     }),
+    //   };
 
-    // console.log("idDatosSensor " + data.idDatosSensor);
-    const url2 =
-      "https://api-ace2-proyec2.herokuapp.com/datosSensor/idDatosSensor/" +
-      data.idDatosSensor;
-    const response1 = await fetch(url2, requestPost2);
-    const responseJSON1 = await response1.json();
-    console.log("ritmo actualizado " + Object.values(responseJSON1));
+    //   // console.log("idDatosSensor " + data.idDatosSensor);
+    //   const url2 =
+    //     "https://api-ace2-proyec2.herokuapp.com/datosSensor/idDatosSensor/" +
+    //     data.idDatosSensor;
+    //   const response1 = await fetch(url2, requestPost2);
+    //   const responseJSON1 = await response1.json();
+    //   console.log("ritmo actualizado " + Object.values(responseJSON1));
   };
 
   useEffect(() => {
@@ -159,7 +159,7 @@ function Entreno(props) {
         <DetalleEntreno
           entreno={selectExrs}
           values={data}
-          ritmo={ritmo}
+          // ritmo={ritmo}
         ></DetalleEntreno>
       </div>
     </Fragment>
