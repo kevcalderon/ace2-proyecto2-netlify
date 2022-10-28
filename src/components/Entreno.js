@@ -65,21 +65,7 @@ function Entreno(props) {
     }
 
     setRitmo(data.ritmo / (salto / range));
-    //   let requestPost2 = {
-    //     method: "PUT",
-    //     headers: { "Content-Type": "application/json" },
-    //     body: JSON.stringify({
-    //       ritmo: ritmo,
-    //     }),
-    //   };
-
-    //   // console.log("idDatosSensor " + data.idDatosSensor);
-    //   const url2 =
-    //     "https://api-ace2-proyec2.herokuapp.com/datosSensor/idDatosSensor/" +
-    //     data.idDatosSensor;
-    //   const response1 = await fetch(url2, requestPost2);
-    //   const responseJSON1 = await response1.json();
-    //   console.log("ritmo actualizado " + Object.values(responseJSON1));
+    console.log("el ritmo es : " + ritmo);
   };
 
   useEffect(() => {
